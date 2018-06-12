@@ -3,6 +3,7 @@ import blessed from 'blessed';
 import { render } from 'react-blessed';
 
 import { Profile } from './profile';
+import { Links } from './links';
 
 /**
  * L: 2% |L: 54%
@@ -23,6 +24,7 @@ class App extends Component {
                 border={{ type: 'line' }}
                 style={{ border: { fg: 'cyan' } }}>
                 <Profile />
+                <Links />
             </box>
         );
     }

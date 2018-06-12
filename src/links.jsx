@@ -1,16 +1,16 @@
 import React, { Component } from 'react';
 
-export class Profile extends Component{
+export class Links extends Component{
     render() {
         return (
-          <box label="Profile"
+          <box label="Links"
                left='2%'
-               top="5%"
+               top="50%"
                width='45%'
                height="45%"
                border={{type: 'line'}}
                style={{border: {fg: 'green'}}}>
-            {"Birthday: 28 Jan, 2018\nGender: Male"}
+            {"WIP"}
           </box>
         );
     }
