@@ -1,0 +1,17 @@
+{
+  "name": "nao20010128nao-vpx",
+  "version": "1.0.0",
+  "description": "",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "true"
+  },
+  "author": "nao20010128nao",
+  "license": "MIT",
+  "dependencies": {
+    "babel-register": "^6.26.0",
+    "blessed": "^0.1.81",
+    "react": "^16.4.0",
+    "react-blessed": "^0.2.1"
+  }
+}
