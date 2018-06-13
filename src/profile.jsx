@@ -15,7 +15,7 @@ export class Profile extends Component {
                     top="5%"
                     width='90%'
                     height="80%">
-                    {"Birthday: 28 Jan, 2018\nGender: Male\nNot a general adult man"}
+                    {"Birthday: 28 Jan, 2001\nGender: Male\nNot a general adult man"}
                 </box>
             </box>
         );

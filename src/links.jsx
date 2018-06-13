@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 const items = {
     "GitHub": "https://github.com/nao20010128nao",
     "Twitter": "https://twitter.com/2ndLesmi",
-    "Blog":"https://nao20010128.blogspot.jp"
+    "Blog": "https://nao20010128.blogspot.jp"
 };
 const keys = Object.keys(items);
 

@@ -4,14 +4,15 @@ import { render } from 'react-blessed';
 
 import { Profile } from './profile';
 import { Links } from './links';
+import { Image } from './image';
 
 /**
- * L: 2% |L: 54%
+ * L: 2% |L: 50%
  * T: 5% |T: 5% 
  * W: 45%|W: 45%
  * H: 45%|H: 45%
  * ------+------
- * L: 2% |L: 54%
+ * L: 2% |L: 50%
  * T: 50%|T: 50%
  * W: 45%|W: 45%
  * H: 45%|H: 45% 
@@ -25,6 +26,7 @@ class App extends Component {
                 style={{ border: { fg: 'cyan' } }}>
                 <Profile />
                 <Links />
+                <Image />
             </box>
         );
     }
