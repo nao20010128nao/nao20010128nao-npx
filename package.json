@@ -10,6 +10,7 @@
   "license": "MIT",
   "dependencies": {
     "blessed": "^0.1.81",
+    "random-js": "^1.0.8",
     "react": "^16.4.0",
     "react-blessed": "^0.2.1",
     "transform-runtime": "0.0.0"

@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import RandomJS from "random-js";
+
 const texts = [
     "(´･_･`)Nyaan",
     "All your base are belong to us",
@@ -6,6 +8,8 @@ const texts = [
     "I am a Japanese general adult man",
     "Thanks your advise too much."
 ];
+
+const random = RandomJS.engines.mt19937().autoSeed();
 
 export class Random extends Component {
     constructor() {
@@ -35,6 +39,6 @@ export class Random extends Component {
     }
     textClicked() {
         //this.setState({ offset: (this.state.offset + 1) % texts.length });
-        this.setState({ offset: parseInt(Math.random() * texts.length) });
+        this.setState({ offset: RandomJS.integer(0, texts.length - 1)(random) });
     }
 }
