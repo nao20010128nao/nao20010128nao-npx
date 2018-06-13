@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 
 const items = {
     "GitHub": "https://github.com/nao20010128nao",
-    "Twitter": "https://twitter.com/2ndLesmi"
+    "Twitter": "https://twitter.com/2ndLesmi",
+    "Blog":"https://nao20010128.blogspot.jp"
 };
 const keys = Object.keys(items);
 
@@ -10,7 +11,7 @@ export class Links extends Component {
     constructor() {
         super();
         this.state = {
-            url: "Select an website above"
+            url: "Select a website above"
         };
     }
 
