@@ -1,11 +1,12 @@
 {
   "name": "nao20010128nao",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "",
   "main": "src/run.js",
   "scripts": {
     "start": "node src/run.js"
   },
+  "bin": "src/run.js",
   "author": "nao20010128nao",
   "license": "MIT",
   "dependencies": {
