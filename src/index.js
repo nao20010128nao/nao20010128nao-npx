@@ -1,11 +1,13 @@
-import React, { Component } from 'react';
-import blessed from 'blessed';
-import { render } from 'react-blessed';
+const React = require("react");
+const { Component } = React;
+const blessed = require('blessed');
+const { render } = require('react-blessed');
+const importJsx = require("import-jsx");
 
-import { Profile } from './profile';
-import { Links } from './links';
-import { Image } from './image';
-import { Random } from './random';
+const Profile = importJsx('./profile');
+const Links = importJsx('./links');
+const Image = importJsx('./image');
+const Random = importJsx('./random');
 
 /**
  * L: 2% |L: 50%

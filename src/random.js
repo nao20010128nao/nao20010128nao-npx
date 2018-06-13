@@ -1,5 +1,6 @@
-import React, { Component } from 'react';
-import RandomJS from "random-js";
+const React = require("react");
+const { Component } = React;
+const RandomJS = require("random-js");
 
 const texts = [
     "(´･_･`)Nyaan",
@@ -11,7 +12,7 @@ const texts = [
 
 const random = RandomJS.engines.mt19937().autoSeed();
 
-export class Random extends Component {
+module.exports = class Random extends Component {
     constructor() {
         super();
         this.state = { offset: 0 };

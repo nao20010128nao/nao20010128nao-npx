@@ -1,8 +1,9 @@
-import React, { Component } from 'react';
-import { rin, miku } from "./images/"
+const React = require("react");
+const { Component } = React;
+const { rin, miku } = require( "./images/");
 const images = [rin, miku];
 
-export class Image extends Component {
+module.exports = class Image extends Component {
     constructor() {
         super();
         this.state = { offset: 0 };

@@ -1,4 +1,5 @@
-import React, { Component } from 'react';
+const React = require("react");
+const { Component } = React;
 
 const items = {
     "GitHub": "https://github.com/nao20010128nao",
@@ -7,7 +8,7 @@ const items = {
 };
 const keys = Object.keys(items);
 
-export class Links extends Component {
+module.exports = class Links extends Component {
     constructor() {
         super();
         this.state = {

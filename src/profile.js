@@ -1,6 +1,7 @@
-import React, { Component } from 'react';
+const React = require("react");
+const { Component } = React;
 
-export class Profile extends Component {
+module.exports = class Profile extends Component {
     render() {
         return (
             <box label="Profile"
