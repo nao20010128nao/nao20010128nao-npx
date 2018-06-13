@@ -5,6 +5,7 @@ import { render } from 'react-blessed';
 import { Profile } from './profile';
 import { Links } from './links';
 import { Image } from './image';
+import { Random } from './random';
 
 /**
  * L: 2% |L: 50%
@@ -27,6 +28,7 @@ class App extends Component {
                 <Profile />
                 <Links />
                 <Image />
+                <Random />
             </box>
         );
     }
