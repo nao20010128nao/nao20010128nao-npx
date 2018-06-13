@@ -6,7 +6,9 @@
   "scripts": {
     "start": "node src/run.js"
   },
-  "bin": "src/run.js",
+  "bin": {
+    "nao20010128nao": "src/run.js"
+  },
   "author": "nao20010128nao",
   "license": "MIT",
   "dependencies": {
