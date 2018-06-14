@@ -9,6 +9,7 @@ module.exports = class Image extends Component {
     constructor() {
         super();
         this.state = { offset: 0, stringData: "", loaded: -1 , rect:-1, loadedSize:-1 };
+        this.imageSwitcher();
     }
     componentWillMount() {
         this.loadImg();
@@ -23,17 +24,19 @@ module.exports = class Image extends Component {
                 height="45%"
                 border={{ type: 'line' }}
                 style={{ border: { fg: 'green' } }}
-                onResizeSize={this.processResize.bind(this)}>
+                onResizeSize={this.processResize.bind(this)}
+                clickable={true}
+                input={true}>
                 {this.state.stringData}
             </skb>
         );
     }
     loadImg() {
-        if(this.state.rect==-1 || this.state.offset==this.state.loaded && this.state.rect==this.state.loadedSize){
+        if(this.state.rect==-1 || (this.state.offset==this.state.loaded && this.state.rect==this.state.loadedSize)){
             return
         }
         (async ()=>{
-            let {offset, rect} = this.state;
+            const {offset, rect} = this.state;
             const stringData = await terminalImage.buffer(images[offset], rect * 2, rect);
             this.setState({stringData, loaded: offset, loadedSize: rect});
         })();
@@ -41,7 +44,15 @@ module.exports = class Image extends Component {
     processResize(size) {
         const {width,height}=size;
         const rect = Math.min(width,height) * 0.7;
-        this.setState({rect})
+        this.setState({rect});
         this.loadImg();
+    }
+    imageSwitcher() {
+        const self = this;
+        setInterval(()=>{
+            const {offset} = self.state;
+            self.setState({offset:(offset + 1) % images.length});
+            self.loadImg();
+        }, 5000);
     }
 }
