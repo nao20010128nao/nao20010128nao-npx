@@ -8,15 +8,20 @@ const items = {
 };
 const keys = Object.keys(items);
 
+const opn = require('opn');
+const open = url => opn(url, {wait: false});
+
 module.exports = class Links extends Component {
     constructor() {
         super();
         this.state = {
-            url: "Select a website above"
+            url: "Select a website above",
+            displayOpen: false
         };
     }
 
     render() {
+        const {url, displayOpen} = this.state;
         return (
             <box label="Links"
                 left='2%'
@@ -44,14 +49,25 @@ module.exports = class Links extends Component {
                     left='5%'
                     top="45%"
                     width='90%'
-                    height="40%">
-                    {this.state.url}
+                    height={displayOpen ? "40%-1" : "40%"}>
+                    {url}
                 </box>
+                {(
+                <box
+                    left='5%'
+                    top="85%"
+                    width='90%'
+                    height="1%"
+                    input={true}
+                    onClick={()=>open(url)}>
+                    {"Open"}
+                </box>
+                )}
             </box>
         );
     }
 
     selected(item) {
-        this.setState({ url: items[item.content] });
+        this.setState({ url: items[item.content] ,displayOpen: true });
     }
 }

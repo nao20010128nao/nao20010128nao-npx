@@ -1,27 +1,47 @@
 const React = require("react");
 const { Component } = React;
+const terminalImage = require('terminal-image-resizeable');
 const { rin, miku } = require( "./images/");
 const images = [rin, miku];
+require("./utils/sizeKnownBox");
 
 module.exports = class Image extends Component {
     constructor() {
         super();
-        this.state = { offset: 0 };
+        this.state = { offset: 0, stringData: "", loaded: -1 , rect:-1, loadedSize:-1 };
+    }
+    componentWillMount() {
+        this.loadImg();
     }
     render() {
         return (
-            <box
+            <skb
                 label="Image"
                 left='50%'
                 top="5%"
                 width='45%'
                 height="45%"
                 border={{ type: 'line' }}
-                style={{ border: { fg: 'green' } }}>
-                <image
-                    type='ansi'
-                    file={images[this.state.offset]} />
-            </box>
+                style={{ border: { fg: 'green' } }}
+                onResizeSize={this.processResize.bind(this)}>
+                {this.state.stringData}
+            </skb>
         );
+    }
+    loadImg() {
+        if(this.state.rect==-1 || this.state.offset==this.state.loaded && this.state.rect==this.state.loadedSize){
+            return
+        }
+        (async ()=>{
+            let {offset, rect} = this.state;
+            const stringData = await terminalImage.buffer(images[offset], rect * 2, rect);
+            this.setState({stringData, loaded: offset, loadedSize: rect});
+        })();
+    }
+    processResize(size) {
+        const {width,height}=size;
+        const rect = Math.min(width,height) * 0.7;
+        this.setState({rect})
+        this.loadImg();
     }
 }

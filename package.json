@@ -18,6 +18,6 @@
     "random-js": "^1.0.8",
     "react": "^16.4.0",
     "react-blessed": "^0.2.1",
-    "terminal-image": "^0.1.1"
+    "terminal-image-resizeable": "^0.1.3"
   }
 }
