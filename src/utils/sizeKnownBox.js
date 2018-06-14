@@ -11,11 +11,20 @@ module.exports = blessed.skb = (options) => {
     };
     setInterval(dbg, 10);
     */
-    sss.on('resize', () => {
+    let calledByRender = false;
+
+    function notifySize() {
         sss.emit('resizeSize', {
             width: sss.width,
             height: sss.height
         });
+    }
+    sss.on('resize', notifySize);
+    sss.on('render', () => {
+        if (!calledByRender) {
+            notifySize();
+        }
+        calledByRender = true;
     });
     return sss;
 }
