@@ -4,10 +4,10 @@ const blessed = require('blessed');
 const { render } = require('react-blessed');
 const importJsx = require("import-jsx");
 
-const Profile = importJsx('./profile');
-const Links = importJsx('./links');
-const Image = importJsx('./image');
-const Random = importJsx('./random');
+const Profile = importJsx('./profile.jsx');
+const Links = importJsx('./links.jsx');
+const Image = importJsx('./image.jsx');
+const Random = importJsx('./random.jsx');
 
 /**
  * L: 2% |L: 50%

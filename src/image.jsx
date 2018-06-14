@@ -1,14 +1,14 @@
 const React = require("react");
 const { Component } = React;
 const terminalImage = require('terminal-image-resizeable');
-const { rin, miku } = require( "./images/");
+const { rin, miku } = require("./images/");
 const images = [rin, miku];
 require("./utils/sizeKnownBox");
 
 module.exports = class Image extends Component {
     constructor() {
         super();
-        this.state = { offset: 0, stringData: "", loaded: -1 , rect:-1, loadedSize:-1 };
+        this.state = { offset: 0, stringData: "", loaded: -1, rect: -1, loadedSize: -1 };
         this.imageSwitcher();
     }
     componentWillMount() {
@@ -32,26 +32,26 @@ module.exports = class Image extends Component {
         );
     }
     loadImg() {
-        if(this.state.rect==-1 || (this.state.offset==this.state.loaded && this.state.rect==this.state.loadedSize)){
+        if (this.state.rect == -1 || (this.state.offset == this.state.loaded && this.state.rect == this.state.loadedSize)) {
             return
         }
-        (async ()=>{
-            const {offset, rect} = this.state;
+        (async () => {
+            const { offset, rect } = this.state;
             const stringData = await terminalImage.buffer(images[offset], rect * 2, rect);
-            this.setState({stringData, loaded: offset, loadedSize: rect});
+            this.setState({ stringData, loaded: offset, loadedSize: rect });
         })();
     }
     processResize(size) {
-        const {width,height}=size;
-        const rect = Math.min(width,height) * 0.7;
-        this.setState({rect});
+        const { width, height } = size;
+        const rect = Math.min(width, height) * 0.7;
+        this.setState({ rect });
         this.loadImg();
     }
     imageSwitcher() {
         const self = this;
-        setInterval(()=>{
-            const {offset} = self.state;
-            self.setState({offset:(offset + 1) % images.length});
+        setInterval(() => {
+            const { offset } = self.state;
+            self.setState({ offset: (offset + 1) % images.length });
             self.loadImg();
         }, 5000);
     }
